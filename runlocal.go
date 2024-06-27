@@ -6,7 +6,15 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-func RunLocal(token string, onUpdate UpdateHandlerFunc) error {
+// RunLocal runs the bot locally.
+// It removes a webhook if it exists and listens for updates in polling mode.
+// Use it for development purposes only.
+func RunLocal(
+	// Telegram token
+	token string,
+	// Handler for updates
+	onUpdate UpdateHandlerFunc,
+) error {
 	bot, err := tgbotapi.NewBotAPI(token)
 	if err != nil {
 		return fmt.Errorf("failed to create bot: %w", err)

@@ -17,7 +17,7 @@ type TgVercel struct {
 type UpdateHandlerFunc func(bot *tgbotapi.BotAPI, update *tgbotapi.Update)
 
 func New(options Options) *TgVercel {
-	err := options.Validate()
+	err := options.validate()
 	if err != nil {
 		log.Fatal(err)
 	}
